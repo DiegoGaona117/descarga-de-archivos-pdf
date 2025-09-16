@@ -21,7 +21,7 @@
     // Enviar evento de compra solo una vez para siempre
     if (!localStorage.getItem('purchase_tracked')) {
         fbq('track', 'Purchase', {
-            value: 119,
+            value: 138,
             currency: 'MXN'
         });
         localStorage.setItem('purchase_tracked', 'true');
