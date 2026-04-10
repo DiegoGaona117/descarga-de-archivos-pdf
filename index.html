@@ -217,7 +217,7 @@
         async function firePurchaseEvent() {
             // Obtener el order_code de la pantalla de checkout
             const ORDER_CODE = localStorage.getItem('order_code') || 'PL-DESCONOCIDO';
-            const EVENT_ID = ORDER_CODE + '-PUR';
+            const EVENT_ID = ORDER_CODE;
             
             // 1. SIEMPRE se dispara el Pixel de Meta (cada vez que cargan esta página de gracias)
             if (typeof fbq === 'function') {
