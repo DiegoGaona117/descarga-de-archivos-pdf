@@ -15,7 +15,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '373277814132384');
-    fbq('track', 'PageView');
+    // ⚠️ PageView automático removido para enviarlo con event_id personalizado abajo
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=373277814132384&ev=PageView&noscript=1"
@@ -30,123 +30,20 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-            min-height: 100vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-        
-        .success-message {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-        
-        .instruction {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-        
-        .buttons-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 1rem;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: black;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-            min-width: 200px;
-            background-color: yellow;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .video-section {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 2rem;
-            backdrop-filter: blur(10px);
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .video-header {
-            background: linear-gradient(135deg, #d32f2f, #c62828);
-            color: white;
-            padding: 15px;
-            border-radius: 10px 10px 0 0;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .video-container {
-            position: relative;
-            background: #f5f5f5;
-            border-radius: 0 0 10px 10px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        
-        .footer-note {
-            margin-top: 2rem;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%); min-height: 100vh; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .container { max-width: 1000px; width: 100%; text-align: center; }
+        h1 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 300; line-height: 1.2; }
+        .success-message { font-size: 1.2rem; margin-bottom: 1rem; color: #4CAF50; font-weight: bold; }
+        .instruction { font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9; }
+        .buttons-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 1rem; }
+        .btn { padding: 15px 30px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; text-decoration: none; color: black; cursor: pointer; transition: all 0.3s ease; display: inline-block; min-width: 200px; background-color: yellow; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .video-section { background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-top: 2rem; backdrop-filter: blur(10px); max-width: 650px; margin-left: auto; margin-right: auto; }
+        .video-header { background: linear-gradient(135deg, #d32f2f, #c62828); color: white; padding: 15px; border-radius: 10px 10px 0 0; font-weight: bold; font-size: 1.1rem; }
+        .video-container { position: relative; background: #f5f5f5; border-radius: 0 0 10px 10px; padding: 20px; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } .btn { width: 100%; max-width: 300px; } }
+        .footer-note { margin-top: 2rem; opacity: 0.7; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -182,8 +79,9 @@
     </div>
 
     <script>
-        const MAKE_WEBHOOK = 'https://hook.us1.make.com/fyli8y7tmxu6mtqf7byp9vy2g3cji3wa';
+        const WORKER_URL = 'https://meta-capi.cursodiegogaona.workers.dev';
 
+        // --- Helpers Funciones ---
         function getCookie(name) {
             const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
             return match ? decodeURIComponent(match[2]) : null;
@@ -195,79 +93,96 @@
             return getCookie('_fbc') || null;
         }
 
-        async function getGeoData() {
+        // Función central para enviar a Cloudflare Worker
+        async function sendToWorker(payload) {
             try {
-                const res  = await fetch('https://ipapi.co/json/');
-                const data = await res.json();
-                return {
-                    client_ip:     data.ip             || null,
-                    geo_ciudad:    data.city           || null,
-                    geo_region:    data.region         || null,
-                    geo_pais:      data.country_name   || null,
-                    geo_pais_code: data.country        || null,
-                    geo_cp:        data.postal         || null,
-                    geo_lat:       data.latitude       || null,
-                    geo_lng:       data.longitude      || null,
-                };
-            } catch (e) {
-                return { client_ip: null, geo_ciudad: null, geo_region: null, geo_pais: null, geo_pais_code: null, geo_cp: null, geo_lat: null, geo_lng: null };
-            }
-        }
-
-        async function firePurchaseEvent() {
-            // Obtener el order_code de la pantalla de checkout
-            const ORDER_CODE = localStorage.getItem('order_code') || 'PL-DESCONOCIDO';
-            const EVENT_ID = ORDER_CODE;
-            
-            // 1. SIEMPRE se dispara el Pixel de Meta (cada vez que cargan esta página de gracias)
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', 
-                    { value: 50, currency: 'MXN', order_id: ORDER_CODE },
-                    { eventID: EVENT_ID }
-                );
-            }
-
-            // 2. SOLO UNA VEZ se dispara el Webhook a Make (usando localStorage para evitar duplicados en el servidor)
-            if (!localStorage.getItem('webhook_purchase_enviado')) {
-                const fbp = getCookie('_fbp') || null;
-                const fbc = getFbc();
-                const geo = await getGeoData();
-
-                fetch(MAKE_WEBHOOK, {
+                const res = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        evento: 'Purchase',
-                        event_id: EVENT_ID,
-                        order_code: ORDER_CODE,
-                        timestamp: new Date().toISOString(),
-                        producto: 'Paquete Planos',
-                        valor: 50,
-                        moneda: 'MXN',
-                        fbp: fbp, 
-                        fbc: fbc,
-                        client_ip: geo.client_ip, 
-                        client_user_agent: navigator.userAgent,
-                        geo_ciudad: geo.geo_ciudad, 
-                        geo_region: geo.geo_region,
-                        geo_pais: geo.geo_pais, 
-                        geo_pais_code: geo.geo_pais_code,
-                        geo_cp: geo.geo_cp, 
-                        geo_lat: geo.geo_lat, 
-                        geo_lng: geo.geo_lng,
-                    })
-                }).then(() => {
-                    // Si se envía con éxito, creamos esta variable para bloquear futuros envíos a Make
-                    localStorage.setItem('webhook_purchase_enviado', 'true');
-                    console.log('✅ Evento Purchase enviado a Make exitosamente');
-                }).catch((error) => {
-                    console.error('Error al enviar el Webhook:', error);
+                    body: JSON.stringify(payload)
                 });
+                const json = await res.json();
+                console.log(`✅ [Cloudflare] ${payload.evento} procesado:`, json);
+            } catch (e) {
+                console.error(`❌ [Cloudflare] Error enviando ${payload.evento}:`, e);
             }
         }
 
-        // Ejecutar la función de rastreo tan pronto como cargue el script
-        firePurchaseEvent();
+        // ─── LÓGICA DE EVENTOS (PIXEL + CAPI) ────────────────────────────────────────
+        async function fireTrackingEvents() {
+            // Obtenemos el order_code. Si no existe, usamos uno por defecto pero NO generamos uno nuevo.
+            const ORDER_CODE = localStorage.getItem('order_code') || 'PL-DESCONOCIDO';
+            
+            const timestampNow = Date.now();
+            
+            // Datos compartidos para el servidor
+            const serverPayloadBase = {
+                order_code: ORDER_CODE,
+                fbp: getCookie('_fbp') || null,
+                fbc: getFbc(),
+                source_url: window.location.href
+            };
+
+            // 1. EVENTO: PAGEVIEW (Por Sesión)
+            if (!sessionStorage.getItem('gracias_visitado')) {
+                sessionStorage.setItem('gracias_visitado', 'true');
+                
+                const EVENT_ID_PAGEVIEW = ORDER_CODE + '-PV-' + timestampNow;
+                console.log('-----------------------------------');
+                console.log(`📡 [Navegador] Enviando PageView -> event_id: ${EVENT_ID_PAGEVIEW}`);
+                
+                if (typeof fbq === 'function') {
+                    fbq('track', 'PageView', {}, { eventID: EVENT_ID_PAGEVIEW });
+                }
+                
+                await sendToWorker({
+                    ...serverPayloadBase,
+                    evento: 'PageView',
+                    event_id: EVENT_ID_PAGEVIEW
+                });
+            } else {
+                console.log('🛑 [Tracking] PageView omitido por recarga de página.');
+            }
+
+
+            // 2. EVENTO: PURCHASE (Único e irrepetible por Order Code)
+            const compraKey = 'purchase_enviado_' + ORDER_CODE;
+            
+            if (!localStorage.getItem(compraKey) && ORDER_CODE !== 'PL-DESCONOCIDO') {
+                // NOTA: Para Purchase, no usamos timestamp en el ID para que Meta 
+                // deduplique estrictamente basado en la orden.
+                const EVENT_ID_PURCHASE = ORDER_CODE + '-PUR'; 
+
+                console.log('-----------------------------------');
+                console.log(`💰 [Navegador] Enviando Purchase -> event_id: ${EVENT_ID_PURCHASE}`);
+                
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Purchase', 
+                        { content_name: 'Paquete de Planos', value: 60, currency: 'MXN', order_id: ORDER_CODE }, 
+                        { eventID: EVENT_ID_PURCHASE }
+                    );
+                }
+
+                console.log(`💰 [Servidor] Enviando Purchase a Cloudflare...`);
+                await sendToWorker({
+                    ...serverPayloadBase,
+                    evento: 'Purchase',
+                    event_id: EVENT_ID_PURCHASE,
+                    producto: 'Paquete de Planos',
+                    valor: 60,
+                    moneda: 'MXN'
+                });
+                
+                // Marcamos esta orden como comprada para SIEMPRE
+                localStorage.setItem(compraKey, 'true');
+                console.log('-----------------------------------');
+            } else {
+                console.log(`🛑 [Tracking] Purchase omitido. La orden ${ORDER_CODE} ya fue registrada anteriormente o es desconocida.`);
+            }
+        }
+
+        // Ejecutar los eventos al cargar la página
+        window.addEventListener('load', fireTrackingEvents);
     </script>
 </body>
 </html>
